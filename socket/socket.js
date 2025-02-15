@@ -9,7 +9,7 @@ const io = new Server(server, {
     cors:{
         origin: [
             "http://localhost:3000",
-            "http://chat-app-backend-one-zeta.vercel.app",
+            "https://chat-app-backend-one-zeta.vercel.app",
             "https://wondrouschatapp.netlify.app"
         ],
         methods:['GET', 'POST'],
