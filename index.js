@@ -20,16 +20,17 @@ const PORT = process.env.PORT || 5000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json()); 
 app.use(cookieParser());
-app.use(cors(corsOption)); 
 const corsOption={
     origin: [
         "http://localhost:3000",
         "https://chat-app-backend-one-zeta.vercel.app",
         "https://wondrouschatapp.netlify.app"
     ],
-    methods: 'GET,POST,PUT,DELETE',
-    allowedHeaders: 'Content-Type,Authorization'
+    credentials: true, // Allow cookies, authorization headers, etc.
+    methods: 'GET, POST, PUT, DELETE, OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization'
 };
+app.use(cors(corsOption)); 
 
 
 // routes
@@ -46,7 +47,7 @@ app.use("/api/v1/message",messageRoute);
 
 app.listen(PORT, ()=>{
     connectDB();
-    console.log(`Server listen at prot ${PORT}`);
+    console.log(`Server listen at port ${PORT}`);
 });
 // server.listen(PORT, ()=>{
 //     connectDB();
