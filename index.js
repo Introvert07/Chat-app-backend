@@ -21,7 +21,12 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json()); 
 app.use(cookieParser());
 const corsOption={
-    origin:'http://localhost:3000',
+    origin: [
+        "http://localhost:3000",
+        "http://chat-app-backend-one-zeta.vercel.app",
+        "https://wondrouschatapp.netlify.app"
+    ],
+    
     credentials:true
 };
 app.use(cors(corsOption)); 
