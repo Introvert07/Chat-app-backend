@@ -13,6 +13,7 @@ const io = new Server(server, {
             "https://wondrouschatapp.netlify.app"
         ],
         methods:['GET', 'POST'],
+        allowedHeaders: 'Content-Type,Authorization'
     },
 });
 
