@@ -13,7 +13,8 @@ const io = new Server(server, {
             "https://wondrouschatapp.netlify.app"
         ],
         methods:['GET', 'POST'],
-        allowedHeaders: 'Content-Type,Authorization'
+        allowedHeaders: ["Content-Type", "Authorization"]
+
     },
 });
 
@@ -26,7 +27,7 @@ const userSocketMap = {}; // {userId->socketId}
 
 io.on('connection', (socket)=>{
     const userId = socket.handshake.query.userId
-    if(userId !== undefined){
+    if(userId){
         userSocketMap[userId] = socket.id;
     } 
 
