@@ -26,8 +26,6 @@ const corsOption={
         "http://chat-app-backend-one-zeta.vercel.app",
         "https://wondrouschatapp.netlify.app"
     ],
-    
- c
 };
 app.use(cors(corsOption)); 
 
@@ -44,10 +42,14 @@ app.use("/api/v1/message",messageRoute);
 // })
  
 
-server.listen(PORT, ()=>{
+app.listen(PORT, ()=>{
     connectDB();
     console.log(`Server listen at prot ${PORT}`);
 });
+// server.listen(PORT, ()=>{
+//     connectDB();
+//     console.log(`Server listen at prot ${PORT}`);
+// });
 
 app.get("/",(req,res) => {
     return res.status(200).json({
