@@ -27,7 +27,8 @@ const corsOption={
         "https://wondrouschatapp.netlify.app"
     ],
     
-    credentials:true
+    credentials:true,
+     allowedHeaders: 'Content-Type,Authorization'
 };
 app.use(cors(corsOption)); 
 
