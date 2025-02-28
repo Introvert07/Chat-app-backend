@@ -10,8 +10,6 @@ import path from "path";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
-
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,9 +24,15 @@ const corsOptions = {
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     allowedHeaders: ["Content-Type", "Authorization"],
-    exposedHeaders: ["Authorization"],
+    exposedHeaders: ["Authorization"]
 };
 app.use(cors(corsOptions));
+
+// Explicitly handle preflight requests before defining routes
+app.options("*", cors(corsOptions));
+
+const PORT = process.env.PORT || 5000;
+
 
 // Handle Preflight Requests
 app.use((req, res, next) => {
