@@ -18,7 +18,7 @@ app.use(cookieParser());
 const corsOptions = {
     origin: [
         "http://localhost:3000",
-        "https://chat-app-backend-one-zeta.vercel.app",
+        "https://chat-app-backend-wr8r.onrender.com",
         "https://wondrouschatapp.netlify.app"
     ],
     credentials: true,
